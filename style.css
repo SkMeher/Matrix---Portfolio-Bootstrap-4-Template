@@ -1,0 +1,1306 @@
+/*
+Template: Portfolio Bootstrap 4 ;
+Author: Sk Meher ;
+Email: sarkarmeher1999@gmail.com
+website: stecbd.com
+Phone: 01777955540
+*/
+
+/*
+================================================
+[  Table of contents  ]
+================================================
+01. Common CSS
+02. sidebar CSS
+03. home CSS
+04. nav bar CSS
+05. about CSS
+06. resume CSS
+	06.a. skills CSS
+	
+07. services CSS
+08. projects CSS
+09. contacts CSS
+	09.a. clients CSS
+	09.b. contact area CSS
+
+
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+/*======================
+    01. Common CSS
+========================*/
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body{
+	font-size: 18px;
+	font-family: 'Poppins', sans-serif;
+	overflow-x: hidden;
+}
+
+:root {
+	--ptitle: calc(5vw + 1rem);
+	--ptitles: calc(4vw + 1rem);
+	--animate-duration: 1.5s;
+}
+
+::-moz-selection {
+	background: #f17107;
+	text-shadow: none;
+	color: #000;
+}
+
+::selection {
+	background: #f17107;
+	text-shadow: none;
+	color: #000;
+}
+
+hr {
+	display: block;
+	height: 1px;
+	border: 0;
+	border-top: 1px solid #ccc;
+	margin: 1em 0;
+	padding: 0;
+}
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+	vertical-align: middle;
+}
+
+textarea {
+	resize: vertical;
+}
+
+#loader {
+	position: fixed;
+	width: 100%;
+	z-index: 99999;
+	height: 100vh;
+	background: white url('assets/img/loder.gif')no-repeat center;
+}
+
+.pagecontainer {
+	width: calc(100% - 100px);
+	margin-left: 100px;
+}
+
+.page {
+	min-height: 100vh;
+	position: relative;
+	padding: 70px 0;
+}
+
+.ptarea {
+	height: 300px;
+	position: relative;
+}
+
+.page_title {
+	position: absolute;
+	width: clamp(250px, 50%, 800px);
+	height: fit-content;
+	text-transform: uppercase;
+	text-align: center;
+	margin: auto;
+	top: 50%;
+	left: 0;
+	right: 0;
+	color: azure;
+	transform: translateY(-50%);
+	font-family: 'Archivo Black', sans-serif;
+}
+
+.page_title span,
+.page_title h1 {
+	font-size: var(--ptitles);
+}
+
+.page_title h1 {
+	position: relative;
+	width: fit-content;
+	display: inline-block;
+	margin: 0 10px;
+}
+
+.greenline {
+	content: '';
+	width: 30px;
+	height: 7px;
+	background: #f17107;
+	position: absolute;
+	left: 0;
+	bottom: -3px;
+	z-index: 1;
+}
+
+.page_title h1::after {
+	content: '';
+	width: 100%;
+	height: 1px;
+	background: azure;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+}
+
+.page_title span {
+	background: #f17107;
+	padding: 0 15px;
+	border-radius: 3px;
+}
+
+.topic-title {
+	font-size: calc(2vw + 1rem);
+	font-weight: 800;
+	padding-bottom: 20px;
+}
+
+p,
+span,
+h3,
+h4,
+h5,
+h6,
+strong {
+	line-height: 1.5;
+}
+
+.button {
+	margin: 40px auto;
+	display: block;
+	text-align: center;
+	width: 230px;
+	padding: 10px 20px;
+	background: #575a57;
+	color: azure;
+	text-decoration: none;
+	height: fit-content;
+	overflow: hidden;
+	position: relative;
+	z-index: 10;
+	text-transform: uppercase;
+	border: none;
+	outline: none;
+}
+.mix-btn-con button.active,
+.mix-btn-con button:hover,
+.mix-btn-con button:focus,
+.button:focus,
+.button:hover {
+	text-decoration: none;
+	color: azure;
+	border: none;
+	outline: none;
+}
+.mix-btn-con button:focus::after,
+.mix-btn-con button:hover::after,
+.button:focus::after,
+.button:hover::after {
+	content: '';
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: #f17107;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	margin: auto;
+	animation: btnfill 1s linear;
+	z-index: -1;
+}
+
+@keyframes btnfill {
+	0% {
+		left: 0;
+		right: 0;
+		bottom: -50%;
+		background: #f17107;
+		width: 10px;
+		height: 10px;
+		border-radius: 50%;
+	}
+
+	100% {
+		bottom: 0;
+		background: #f17107;
+		width: 500px;
+		height: 500px;
+	}
+}
+.cards{
+	border-radius: 10px;
+	padding: 10px;
+	text-align: center;
+}
+/*======================
+    02. sidebar CSS
+========================*/
+
+aside {
+	position: fixed;
+	left: 0;
+	top: 0;
+	height: 100vh;
+	width: 100px;
+	background: #222;
+	z-index: 99998;
+}
+aside img{
+	width: 60px;
+}
+.asidecontent {
+	position: relative;
+	padding: 50px 10px;
+	text-align: center;
+	height: 100vh;
+}
+
+.social {
+	height: fit-content;
+	position: absolute;
+	bottom: 50px;
+	margin: auto;
+	width: 30px;
+	left: 0;
+	right: 0;
+}
+
+.social a {
+	display: block;
+	color: #222;
+	background: #f17107;
+	padding: 2px 6px;
+	border-radius: 5px;
+	margin-top: 5px;
+	transition: .5s;
+}
+
+.social a:hover {
+	opacity: .5;
+}
+
+/*======================
+    03. home CSS
+========================*/
+
+#home {
+	background: url('assets/img/homebanar.jpg') center no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+	padding: 0;
+	margin: 0;
+	overflow: hidden;
+	z-index: 1;
+	position: relative;
+}
+
+
+#home video {
+	position: absolute;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	min-height: 100vh;
+	min-width: 100vw;
+}
+
+.banartext {
+	position: absolute;
+	margin: auto;
+	height: fit-content;
+	width: clamp(250px, 50%, 800px);
+	top: 50%;
+	transform: translateY(-50%);
+	right: 0;
+	left: 0;
+	text-align: center;
+	z-index: 10;
+}
+
+.banartext h1 span,
+.banartext h1,
+.banartext h2 {
+	font-family: 'Archivo Black', sans-serif;
+	color: aliceblue;
+}
+
+.banartext h1 span,
+.banartext h1 {
+	font-size: var(--ptitle);
+}
+
+.banartext h2 {
+	font-size: calc(3vw + 1rem);
+}
+
+.banartext h1 span {
+	color: #f17107;
+}
+
+.banartext p {
+	cursor: pointer;
+}
+
+.banartext p a {
+	padding: 10px;
+	color: aliceblue;
+	transition: .5s;
+	font-size: calc(.5vw + 1rem);
+}
+
+.banartext p a:hover {
+	color: #f17107;
+}
+
+.homepage {
+	position: relative;
+}
+
+.overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: black;
+	opacity: .5;
+	z-index: 1;
+}
+
+.homeslider {
+	height: 100vh;
+	width: 100%;
+}
+
+
+.slick-prev:before,
+.slick-next:before {
+	color: #ffffff;
+	background: transparent;
+	box-shadow: inset 0 0 10px 5px #ffffff8a;
+	border-radius: 50%;
+}
+
+.hslpage {
+	height: 100vh;
+	position: relative;
+	background-repeat: no-repeat !important;
+	background-size: cover !important;
+	background-position: center !important;
+}
+
+/*======================
+    04. nav bar CSS
+========================*/
+
+nav::-webkit-scrollbar{
+	width: 0px;
+}
+nav ul {
+	list-style-type: none;
+	display: flex;
+	justify-content: space-between;
+	padding: 0;
+	margin: 0;
+}
+
+nav ul li {
+	display: inline-block;
+	width: calc(100% / 7);
+	text-align: center;
+	padding: 0;
+	margin: 0;
+	position: relative;
+}
+
+nav ul li a {
+	text-transform: uppercase;
+	padding: 10px;
+	display: block;
+	color: azure;
+	transition: 1s;
+	background: #3c3d42;
+}
+
+nav ul li button {
+	text-transform: uppercase;
+	background: #3c3d42;
+	color: azure;
+	display: block;
+	width: 100%;
+	height: 100%;
+	border: none;
+	outline:none;
+}
+nav ul li button:focus,
+nav ul li button:hover{
+	border: none;
+	outline: none;
+}
+nav ul li button:focus{
+	color: #f17107;
+}
+
+
+nav ul li a:hover,
+.navbarul li.active>a {
+	background: #f17107;
+	text-decoration: none;
+	color: azure;
+}
+
+/*sub nav css*/
+
+.subnav {
+	display: none;
+}
+.subnav li {
+	display: block;
+	width: 100%;
+}
+
+.ddm{
+	display: block;
+	position: absolute;
+	z-index: 1;
+	width: 100%;
+	right: 0%;
+	top: 100%;
+	background: #3c3d42;
+	transition: 1s ease-in-out;
+}
+.sticky {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 99998;
+	width: 100%;
+}
+
+.sticky .navbarul {
+	width: calc(100% - 100px);
+	margin-left: 100px;
+}
+
+/*======================
+    05. about CSS
+========================*/
+
+.aboutpt {
+	background: #2b2402a6 url('assets/img/b2s.jpg') top no-repeat;
+	background-size: cover;
+	
+	background-blend-mode: multiply;
+}
+
+
+
+.left {
+	background: url('assets/img/profile.jpg') center no-repeat;
+	background-size: contain;
+	min-height: 300px;
+}
+
+
+.right strong {
+	padding-bottom: 20px;
+	display: block;
+}
+
+.right p {
+	color: #333131;
+	padding-bottom: 30px;
+}
+
+.barfill span {
+	font-weight: 700;
+	display: block;
+	padding-bottom: 5px;
+}
+
+.about-btm {
+	padding-top: 50px;
+}
+
+.about-btm h3 {
+	text-align: center;
+	position: relative;
+}
+
+.about-btm h3::after,
+.about-btm h3::before {
+	content: '';
+	position: absolute;
+	top: 50%;
+	height: 2px;
+	width: 30%;
+	background: #8f8f9485;
+}
+
+.about-btm h3::before {
+	left: 40px;
+}
+
+.about-btm h3::after {
+	right: 40px;
+}
+.about-btm .cards{
+	background: #f1700741;
+	margin: auto;
+	text-align: center;
+	padding: 50px 10px;
+	border-radius: 10px;
+	margin-top: 30px;
+}
+
+#about .page{
+	padding: 70px 0;
+}
+
+
+/*======================
+    06. resume CSS
+========================*/
+
+.resumetp {
+	background: #2b2402a6 url('assets/img/b3.jpg') center no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+	background-blend-mode: multiply;
+}
+
+.cvcontent{
+	padding-left: 50px;
+}
+
+.cvsub {
+	position: relative;
+	border-left: 2px solid rgb(182, 185, 185);
+	margin-top: 50px;
+	position: relative;
+	padding: 10px 50px 0;
+}
+
+.icon {
+	clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+	background: #f17107;
+	height: 50px;
+	width: 50px;
+	position: absolute;
+	top: 0px;
+	left: -26px;
+	text-align: center;
+	padding: 15px 0;
+	color: white;
+}
+
+.cvsub h4 {
+	padding-bottom: 40px;
+}
+
+.date {
+	position: relative;
+	display: block;
+	padding-bottom: 10px;
+}
+
+.date::after {
+	content: '';
+	display: block;
+	position: absolute;
+	z-index: 1;
+	border-radius: 50%;
+	height: 15px;
+	width: 15px;
+	background: #f17107;
+	top: 0;
+	left: -58px;
+}
+
+.cvsub h6 {
+	padding: 0;
+	margin: 0;
+}
+
+.cvsub p {
+	padding: 15px 0;
+}
+
+/*======================
+    08.a. skills CSS
+========================*/
+
+.skills {
+	background: #2b2402a6 url('assets/img/lonely-beach-wallpaper-3840x1200-2850_62.jpg') center no-repeat;
+	background-size: cover;
+	
+	background-blend-mode: multiply;
+}
+
+.skc {
+	padding: 30px 0 80px;
+}
+
+.skc h1 {
+	text-align: center;
+	padding: 50px 0;
+	text-transform: capitalize;
+}
+
+.barprogress {
+	width: 90%;
+	margin: 0;
+
+}
+
+svg.radial-progress circle {
+	stroke-width: 3;
+	stroke: #f17107;
+}
+
+svg.radial-progress text {
+	fill: Black;
+	font-size: 20px;
+}
+
+.progresstitle {
+	display: flex;
+	justify-content: space-between;
+}
+
+.progress {
+	position: relative;
+	height: 8px;
+	margin: 5px 0 15px;
+
+}
+
+.progress-bar {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	background: #f17107;
+}
+
+/*======================
+    07. services CSS
+========================*/
+
+#services {
+	padding-bottom: 30px;
+}
+.sptitle{
+	background: #00000093 url('assets/img/images.jpg') no-repeat center;
+	background-size: cover;
+	background-blend-mode: overlay;
+	margin-bottom: 100px;
+}
+
+#services .cards {
+	width: 90%;
+	min-height: 300px;
+	display: grid;
+	position: relative;
+	background: #dfe2e2;
+	box-shadow: 0 0 5px black;
+	transition: .5s;
+	padding: 50px 20px;
+	font-weight: 600;
+}
+
+
+.card-icon {
+	font-size: 50px;
+	display: block;
+	margin: auto;
+	color: black;
+	transition: 1.5s;
+	border: 5px solid transparent;
+	width: 70px;
+	height: 70px;
+	text-align: center;
+	padding-top: 5px;
+	margin-bottom: 15px;
+}
+.cardcon{
+	position: relative;
+}
+#services .cards span::before{
+	content:"";
+	width: 0%;
+	height: 4px;
+	background: #f17107;
+	position: absolute;
+	top: 0;
+	left: 0;
+	transition: 1s ease-in-out;
+}
+
+#services .cards span::after{
+	content:"";
+	width: 0%;
+	height: 4px;
+	background: #f17107;
+	position: absolute;
+	top: 66px;
+	right: 0;
+	transition: 1s ease-in-out;
+}
+#services .cards h3 {
+	font-weight: 900;
+}
+
+#services .cards:hover {
+	background: white;
+}
+#services .cards:hover span{
+	width: 100%;
+}
+#services .cards:hover .card-icon {
+	color: #f17107;
+	border-color: #f17107;
+}
+#services .cards:hover span::before,
+#services .cards:hover span::after{
+	width: 100%;
+}
+
+/*======================
+    08. projects CSS
+========================*/
+
+.propage {
+	background: #2b2402a6 url('assets/img/b7.jpg') center no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+	background-blend-mode: multiply;
+}
+
+#rprojects {
+	padding: 0px 50px 100px;
+}
+
+.projectcont {
+	padding: 50px 0 0;
+}
+
+.projectcont .cards {
+	width: 90%;
+	box-shadow: 0 0 5px rgb(163, 163, 163), inset 0 0 5px black;
+	background: white;
+	padding: 10px !important;
+	overflow: hidden;
+	position: relative;
+	margin-top: 50px !important;
+	transition: 1s ease-in-out;
+}
+.projectcont .lbox_a{
+	display: block;
+	width: 100%;
+	color: #050404;
+	text-decoration: none;
+	font-weight: normal !important;
+}
+.lbox_img-con{
+	border: 1px solid gray;
+	width: 100%;
+	overflow: hidden;
+	margin-bottom: 10px;
+}
+.projectcont .cards img {
+	width: 100%;
+	display: block;
+	margin: auto;
+	transition:  1s ease-in-out;
+
+}
+
+.projectcont .cards:hover{
+	background:#0102011a;
+}
+.projectcont .cards:hover img {
+	scale: 1.09;
+}
+.mix-btn-con{
+	padding: 50px 0 0;
+}
+.mix-btn-con button{
+	background: #575a57;
+	color: azure;
+	text-transform: uppercase;
+	padding: 3px 10px;
+	border: none;
+	font-weight: 700;
+	position: relative;
+	overflow: hidden;
+	z-index: 10;
+
+}
+
+/*======================
+    09. contacts CSS
+========================*/
+#contact .col-xl-4{
+	word-wrap: break-word;
+}
+
+#contact .cards{
+	padding: 50px 10px;
+}
+/*======================
+    09.a. clients CSS
+========================*/
+#clients {
+	margin-top: 100px !important;
+}
+
+.clienttp {
+	background: #2b2402a6 url('assets/img/photo-1536347902861-6922594a85b3.jfif') center no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+	background-blend-mode: multiply;
+}
+
+.slider-container {
+	text-align: center;
+	padding: 80px 0px;
+	overflow: hidden !important;
+}
+
+.item {
+	padding: 10px;
+
+}
+
+.reviue {
+	font-weight: bold;
+	padding: 0 10px 30px !important;
+	opacity: .7;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.item hr {
+	border: none;
+	outline: none;
+	display: block;
+	height: 3px;
+	width: 30%;
+	margin: auto;
+	border-top: 3px dashed black;
+	opacity: .5;
+}
+
+.cimb {
+	padding: 30px 0;
+	text-align: center;
+}
+
+.cimb img {
+	display: block;
+	height: 60px;
+	border-radius: 50%;
+}
+
+.client-slider .slick-prev:before,
+.client-slider .slick-next:before {
+	color: #f17107 !important;
+	
+}
+
+.client-slider .slick-prev {
+	left: 0px !important;
+}
+
+.client-slider .slick-next {
+	right: 0px !important;
+}
+
+.client-slider .slick-dots {
+	bottom: -20px !important;
+}
+
+/*======================
+    09.b. contact area CSS
+========================*/
+#contact_area .ptarea {
+	background: #2b2402a6 url('assets/img/fullwidthbg2.jpg') left no-repeat;
+	background-size: cover;
+	background-blend-mode: multiply;
+	margin-bottom: 50px;
+
+}
+
+#contact_area .cards {
+	margin-top: 50px !important;
+	background: white;
+	width: 90%;
+	box-shadow: 0 0 5px black;
+}
+
+.ctext i {
+	font-size: var(--ptitles);
+	color: #f17107;
+	display: block;
+	padding: 15px 0;
+}
+
+.subscribeform {
+	background: #00000057;
+	padding: 50px;
+	margin-top: 80px;
+}
+
+.subscribeform h1 {
+	text-transform: uppercase;
+	text-align: center;
+	padding-top: 20px;
+}
+
+.subscribeform form {
+	display: flex;
+	justify-content: center;
+	width: clamp(200px, 99%, 600px);
+	margin: auto;
+}
+
+.subscribeform form input {
+	margin: 20px 0;
+}
+
+.subscribeform form input[type=text] {
+	width: clamp(100px, 70%, 500px);
+	background: #f1700786;
+	border: 1px solid;
+	padding: 0 20px;
+}
+
+.subscribeform form input[type=text]:focus {
+	outline-color: #f17107;
+}
+
+.subscribeform form input[type=text]::placeholder {
+	color: #26272b;
+	font-weight: bold;
+}
+
+footer {
+	background: #050404;
+}
+
+.footercontent {
+	text-align: center;
+	position: relative;
+}
+
+.map {
+	height: 350px;
+	width: 100%;
+	padding-bottom: 50px;
+	position: relative;
+}
+
+.map::after {
+	content: '';
+	position: absolute;
+	width: 100%;
+	height: 300px;
+	left: 0;
+	top: 0;
+	background: #1b1904c4;
+	z-index: 3;
+	opacity: 1;
+	transition: opacity .5s, z-index .6s;
+}
+
+.map:hover::after {
+	z-index: -3;
+	opacity: 0;
+}
+
+.map iframe {
+	width: 100%;
+	height: 100%;
+	border: none;
+}
+
+.socialmidea a {
+	color: white;
+	display: inline-block;
+	padding: 0 6px;
+	transition: 1s;
+}
+
+.socialmidea a:hover {
+	color: #f17107;
+	transform: scale(1.5);
+}
+
+.coppy {
+	text-align: center;
+	color: #ccc;
+	padding: 15px 0 50px;
+}
+
+/*-----------------------------------
+			demo	links  
+-----------------------------------*/
+
+.footercontent>p {
+	color: white;
+	text-align: center;
+}
+
+.footercontent>p>i {
+	color: #3c3d42;
+}
+
+.footercontent>p>a {
+	color: cornsilk;
+	padding-left: 2px;
+	border: 1px solid transparent;
+	border-radius: 3px;
+}
+
+.footercontent>p>a:hover {
+	text-decoration: none;
+	opacity: .5;
+}
+
+.footercontent>p>a.active {
+	border: 1px solid cornsilk;
+}
+
+/*-----------------------------------
+			media queryes 
+-----------------------------------*/
+
+@media only screen and (max-width: 1000px) {
+	
+	aside {
+		width: 100%;
+		height: 50px;
+		display: block;
+	}
+	aside img{
+		width: auto;
+		height:40px;
+		margin-top: 5px;
+	}
+	.asidecontent {
+		padding: 0 30px;
+		display: flex;
+		height: 50px;
+		justify-content: space-between;
+	}
+
+	.social {
+		display: none;
+	}
+
+	.togglemanue.tactive,
+	.togglemanue {
+		height: 30px;
+		width: 35px;
+		margin: 10px 0;
+		color: azure;
+		position: relative;
+	}
+	
+	.togglemanue .tb{
+		width: 100%;
+		height: 5px;
+		position: absolute;
+		background:azure ;
+		left: 0;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		border-radius: 1px;
+		transition: .5s ease-in-out;
+	}
+	.togglemanue .tb2{
+		top: 10px;
+	}
+	.togglemanue .tb3{
+		top: 20px;
+	}
+	.togglemanue.tactive .tb3 {
+		opacity: 0;
+		transition: 1s ease-in-out;
+		
+	}
+
+	.togglemanue.tactive .tb1 {
+		transform: rotate(40deg);
+		top: 0;
+		margin: auto;
+	}
+
+	.togglemanue.tactive .tb2 {
+		transform: rotate(-40deg);
+		top: 0;
+		margin: auto;
+	}
+
+	nav {
+		
+		left: -100%;
+		top: 50px;
+		position: fixed;
+		width: 100%;
+		display: block;
+		min-height: 100vh;
+		background:  #3c3d42;
+		transition: 1s ease-in-out;
+	}
+
+	.nactive {
+		left: 0%;
+		z-index: 1000;
+		transition: 1s ease-in-out;
+	}
+	nav>ul,
+	.nactive>ul {
+		display: block;
+		background: black;
+	}
+	nav ul li,
+	.nactive ul li {
+		display: block;
+		width: 100%;
+	}
+
+
+	.pagecontainer {
+		margin-left: 0;
+		width: 100%;
+	}
+
+	
+
+	.sticky .navbarul {
+		width:100%;
+		margin: auto !important;
+	}
+
+}
+
+@media only screen and (max-width: 768px) {
+	body {
+		font-size: 16px;
+	}
+
+	#services .cards {
+		margin-bottom: 70px !important;
+	}
+
+	#services .last {
+		margin-bottom: 0 !important;
+	}
+
+	.barprogress {
+		width: 95%;
+		margin: auto;
+		padding-top: 30px !important;
+
+
+	}
+
+}
+
+@media only screen and (max-width: 600px) {
+
+	.page {
+		padding: auto 20px;
+	}
+
+	.aboutpagetop {
+		display: block;
+		padding: 0 20px;
+	}
+
+	.left,
+	.right {
+		width: 100%;
+	}
+
+	.left {
+		height: 150px;
+	}
+
+	.right {
+		padding-top: 20px;
+	}
+
+	.about-btm h3::before {
+		display: none;
+	}
+
+	.about-btm h3::after {
+		margin: auto;
+		top: 40px;
+		width: 90%;
+		left: 0;
+		right: 0;
+	}
+
+	.about-b-con {
+		display: block;
+	}
+
+	.cards {
+		margin: 40px auto;
+	}
+
+	.cvcontent {
+		display: block;
+	}
+
+	.cvsub {
+		width: 100%;
+		padding: 10px 0px 10px 50px;
+	}
+
+	.subnav {
+		position: relative;
+		top: 0;
+		box-shadow: 0 0 5px white;
+	}
+
+}
+
+@media only screen and (max-width: 450px) {
+	body {
+		font-size: 14px;
+	}
+
+	.map {
+		position: relative;
+		margin: 10px auto;
+		right: 0;
+	}
+
+	.subscribeform {
+		padding: 50px 20px;
+	}
+}
